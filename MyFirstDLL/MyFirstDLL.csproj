@@ -50,6 +50,8 @@
     <Compile Include="BirthdayAttribute.cs" />
     <Compile Include="ContacFileSaver.cs" />
     <Compile Include="Contact.cs" />
+    <Compile Include="ContactList.cs" />
+    <Compile Include="ContactStack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeDescriptionAttribute.cs" />
   </ItemGroup>

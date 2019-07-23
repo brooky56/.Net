@@ -102,8 +102,6 @@ namespace MyFirstDLL
         public object Clone()
         {
             return new Contact { Name = this.Name, SurName = this.SurName, LastName = this.LastName, Birthday = this.Birthday, Inn = this.Inn, Position = this.Position};
-        }
-
-        
+        }        
     }
 }

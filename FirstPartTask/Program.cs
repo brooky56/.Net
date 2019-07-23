@@ -5,6 +5,7 @@ using System.Linq;
 using System.Globalization;
 using System.Threading;
 using MyFirstDLL;
+using System.Collections;
 
 namespace FirstPartTask
 {
@@ -35,6 +36,24 @@ namespace FirstPartTask
                 Inn = 00908898,
                 Position = "Nurse"
             };
+
+            ContactList<Contact> contacts = new ContactList<Contact>();
+            contacts.AddContact(newContact);
+
+            foreach (Contact contact in contacts.GetContactList())
+                Console.WriteLine(contact.Name);
+
+            Contact searched = contacts.ContactSearch(newContact);
+            Console.WriteLine(searched.Birthday);
+
+            Stack<Contact> contactsStack = new Stack<Contact>();
+            contactsStack.Push(newContact);
+
+            HashSet<Contact> contactsHashSet = new HashSet<Contact>();
+            contactsHashSet.Add(newContact);
+
+            Hashtable hashtable = new Hashtable();
+            hashtable.Add(newContact, 1);
 
             Type type = typeof(Contact);
             PropertyInfo propertyInfo = type.GetProperty(nameof(Contact.Birthday), System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
