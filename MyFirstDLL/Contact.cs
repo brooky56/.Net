@@ -8,14 +8,16 @@ namespace MyFirstDLL
 {
     [TypeDescription(message:"Class")]
     
-    public class Contact: ICloneable
+    public class Contact: Person, ICloneable
     {
         private string _Name;
         private string _SurName;
-        private string _LastName;
+        private string _LastName;      
         private string _Birthday;
         private string _Inn;
         private string _Position;
+        private string _PhoneNumber;
+      
 
         public Contact(){}
         
@@ -39,7 +41,22 @@ namespace MyFirstDLL
                 Console.WriteLine("Attribute on Contact: " + attr.GetType().Name);
         }
 
-        public string Name
+    
+       
+
+        [Birthday("12/31/1900")]
+        public string Birthday { get; set; }
+        public int Inn { get; set; }
+        public string Position { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        public object Clone()
+        {
+            return new Contact { Name = this.Name, SurName = this.SurName, LastName = this.LastName, Birthday = this.Birthday, Inn = this.Inn, Position = this.Position, PhoneNumber = this.PhoneNumber};
+        }
+
+        public override string Name
         {
             get
             {
@@ -58,7 +75,8 @@ namespace MyFirstDLL
                 }
             }
         }
-        public string SurName
+
+        public override string SurName
         {
             get
             {
@@ -76,7 +94,8 @@ namespace MyFirstDLL
                 }
             }
         }
-        public string LastName
+
+        public override string LastName
         {
             get
             {
@@ -88,20 +107,16 @@ namespace MyFirstDLL
                 {
                     throw new NullReferenceException();
                 }
-                else {
+                else
+                {
                     _LastName = value;
                 }
             }
         }
 
-        [Birthday("12/31/1900")]
-        public string Birthday { get; set; }
-        public int Inn { get; set; }
-        public string Position { get; set; }
-
-        public object Clone()
+        public override string DisplayPersonInfo()
         {
-            return new Contact { Name = this.Name, SurName = this.SurName, LastName = this.LastName, Birthday = this.Birthday, Inn = this.Inn, Position = this.Position};
-        }        
+            throw new NotImplementedException();
+        }
     }
 }
