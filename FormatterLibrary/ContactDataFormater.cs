@@ -18,7 +18,11 @@ namespace FormatterLibrary
                     { EExtensions.xml, new XMLFormatterFactory()}
                 };
         }
-
+        /// <summary>
+        /// Function depend on choosen exstention invoke method Create() from ContactFormatterFactory class
+        /// </summary>
+        /// <param name="extensions"></param>
+        /// <returns></returns>
         public IContactFormatter Run(EExtensions extensions) => _factories[extensions].Create();
     }
 }

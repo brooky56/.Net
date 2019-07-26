@@ -30,6 +30,7 @@ namespace MyFirstDLL
         }
 
         //vopros obrabotki bad transaction
+        //1) exeption 2) returned value SaveContactResult() 
         public void SaveContact(string contact, string path)
         {
             try
@@ -46,7 +47,7 @@ namespace MyFirstDLL
 
         private byte[] ConvertStringToByteArray(string contact)
         {
-            return System.Text.Encoding.Default.GetBytes(String.Concat(contact,"\n"));
+            return System.Text.Encoding.UTF8.GetBytes(String.Concat(contact, Environment.NewLine));
         }
     }
 }

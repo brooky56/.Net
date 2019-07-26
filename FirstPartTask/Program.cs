@@ -14,6 +14,7 @@ namespace FirstPartTask
 {
     class Program
     {
+
         private static readonly string _FileName = "test";
         private static readonly string _Path = Path.Combine(Environment.CurrentDirectory,_FileName);
         private static readonly string dot = ".";
@@ -22,30 +23,35 @@ namespace FirstPartTask
         {
 
             Console.WriteLine("Creating new Contact.....");
+
             CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
 
+            
             GenerateContactData generater = new GenerateContactData();
 
-            List<Contact> contacts = generater.GenerateContacts();
-                     
+            List<Contact> contacts = generater.GenerateContacts(); // The list of contacts with generated data
             
+
+            var formatterCSV = new ContactDataFormater().Run(EExtensions.csv);
+            var formatterXML = new ContactDataFormater().Run(EExtensions.xml);
+
             foreach (Contact con in contacts)
             {
-                var formatterCSV = new ContactDataFormater().Run(EExtensions.csv);
                 string contactStringCSV = formatterCSV.Format(con);
-                ContacFileSaver contacFileSaverForCSV = new ContacFileSaver();
-                contacFileSaverForCSV.SaveContact(contactStringCSV, String.Concat(_Path, dot, EExtensions.csv.ToString()));
-                contacFileSaverForCSV.Dispose();
+                using (ContacFileSaver contacFileSaverForCSV = new ContacFileSaver())
+                {
+                    contacFileSaverForCSV.SaveContact(contactStringCSV, String.Concat(_Path, dot, EExtensions.csv.ToString()));
+                }
             }
 
 
             foreach (Contact con in contacts)
             {
-                var formatterXML = new ContactDataFormater().Run(EExtensions.xml);
                 string contactStringXML = formatterXML.Format(con);
-                ContacFileSaver contacFileSaverForXML = new ContacFileSaver();
-                contacFileSaverForXML.SaveContact(contactStringXML, String.Concat(_Path, dot, EExtensions.xml.ToString()));
-                contacFileSaverForXML.Dispose();
+                using (ContacFileSaver contacFileSaverForXML = new ContacFileSaver())
+                {
+                    contacFileSaverForXML.SaveContact(contactStringXML, String.Concat(_Path, dot, EExtensions.xml.ToString()));
+                }
             }
 
             Console.ReadKey();
