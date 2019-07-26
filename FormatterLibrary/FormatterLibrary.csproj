@@ -45,6 +45,7 @@
     <Compile Include="ContactFormatterFactory.cs" />
     <Compile Include="CSVContactFormatter.cs" />
     <Compile Include="CSVFormatterFactory.cs" />
+    <Compile Include="EExstention.cs" />
     <Compile Include="IContactFormatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XMLContactFormatter.cs" />

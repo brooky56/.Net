@@ -6,25 +6,19 @@ using System.Threading.Tasks;
 
 namespace FormatterLibrary
 {
-    //here you can extend the list of formats for future
-    public enum Extensions 
-    {
-        csv,
-        xml
-    }
-
+   
     public class ContactDataFormater 
     {
-        private readonly Dictionary<Extensions, ContactFormatterFactory> _factories;
+        private readonly Dictionary<EExtensions, ContactFormatterFactory> _factories;
         public ContactDataFormater()
         {
-                _factories = new Dictionary<Extensions, ContactFormatterFactory>
+                _factories = new Dictionary<EExtensions, ContactFormatterFactory>
                 {
-                    { Extensions.csv, new CSVFormatterFactory()},
-                    { Extensions.xml, new XMLFormatterFactory()}
+                    { EExtensions.csv, new CSVFormatterFactory()},
+                    { EExtensions.xml, new XMLFormatterFactory()}
                 };
         }
 
-        public IContactFormatter Run(Extensions extensions) => _factories[extensions].Create();
+        public IContactFormatter Run(EExtensions extensions) => _factories[extensions].Create();
     }
 }

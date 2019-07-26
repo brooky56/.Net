@@ -20,12 +20,13 @@ namespace FormatterLibrary
         {
             XDocument xmlDocument = new XDocument(
              new XElement("contact",
-                    new XAttribute("name", contact.Name.ToString()),
-                    new XElement("SurName", contact.SurName.ToString()),
-                    new XElement("LastName", contact.LastName.ToString()),
-                    new XElement("BirthDay", contact.Birthday.ToString()),
-                    new XElement("Inn", contact.Inn.ToString()),
-                    new XElement("Postion", contact.Position.ToString())));
+                    new XAttribute("Name", contact.Name.ToString()),
+                    new XAttribute("SurName", contact.SurName.ToString()),
+                    new XAttribute("LastName", contact.LastName.ToString()),
+                    new XAttribute("BirthDay", contact.Birthday.ToString()),
+                    new XAttribute("Inn", contact.Inn.ToString()),
+                    new XAttribute("Phone number", contact.PhoneNumber.ToString().Trim()),
+                    new XAttribute("Postion", contact.Position.ToString())));
 
             return xmlDocument;
         }

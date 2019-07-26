@@ -16,12 +16,13 @@ namespace MyFirstDLL
         private string _Birthday;
         private string _Inn;
         private string _Position;
+        private string _Gender;
         private string _PhoneNumber;
       
 
         public Contact(){}
         
-        public string GetBirthdayAttributeValue()
+        private string GetBirthdayAttributeValue()
         {
             string value = null;
             var customAttributes = (BirthdayAttribute[])typeof(Contact).GetCustomAttributes(typeof(BirthdayAttribute), true);
@@ -49,11 +50,12 @@ namespace MyFirstDLL
         public int Inn { get; set; }
         public string Position { get; set; }
 
+        public string Gender { get; set; }
         public string PhoneNumber { get; set; }
 
         public object Clone()
         {
-            return new Contact { Name = this.Name, SurName = this.SurName, LastName = this.LastName, Birthday = this.Birthday, Inn = this.Inn, Position = this.Position, PhoneNumber = this.PhoneNumber};
+            return new Contact { Name = this.Name, SurName = this.SurName, LastName = this.LastName, Birthday = this.Birthday, Inn = this.Inn, Position = this.Position,Gender = this.Gender, PhoneNumber = this.PhoneNumber};
         }
 
         public override string Name

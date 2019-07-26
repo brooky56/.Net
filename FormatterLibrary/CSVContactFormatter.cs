@@ -22,6 +22,7 @@ namespace FormatterLibrary
                 contact.LastName, coma, 
                 contact.Birthday, coma,
                 contact.Inn, coma,
+                contact.Gender, coma,
                 contact.PhoneNumber, coma,
                 contact.Position, coma);
         }

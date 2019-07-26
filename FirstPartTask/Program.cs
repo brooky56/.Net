@@ -7,12 +7,16 @@ using System.Threading;
 using MyFirstDLL;
 using System.Collections;
 using FormatterLibrary;
+using System.IO;
+using GenerateDataLibrary;
 
 namespace FirstPartTask
 {
     class Program
     {
-        
+        private static readonly string _FileName = "test";
+        private static readonly string _Path = Path.Combine(Environment.CurrentDirectory,_FileName);
+        private static readonly string dot = ".";
 
         static void Main(string[] args)
         {
@@ -20,33 +24,29 @@ namespace FirstPartTask
             Console.WriteLine("Creating new Contact.....");
             CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
 
-            Contact contact = new Contact {
-                Name = "A",
-                SurName = "AA",
-                LastName = "AAA",
-                Birthday = "01/01/1011",
-                Inn = 12121212,
-                PhoneNumber = "89008765431",
-                Position = "Doctor"
-            };
+            GenerateContactData generater = new GenerateContactData();
+
+            List<Contact> contacts = generater.GenerateContacts();
+                     
+            
+            foreach (Contact con in contacts)
+            {
+                var formatterCSV = new ContactDataFormater().Run(EExtensions.csv);
+                string contactStringCSV = formatterCSV.Format(con);
+                ContacFileSaver contacFileSaverForCSV = new ContacFileSaver();
+                contacFileSaverForCSV.SaveContact(contactStringCSV, String.Concat(_Path, dot, EExtensions.csv.ToString()));
+                contacFileSaverForCSV.Dispose();
+            }
 
 
-
-            var factoryCSV = new ContactDataFormater().Run(Extensions.csv);
-            Console.WriteLine(factoryCSV.Format(contact));
-
-
-            var factoryXML = new ContactDataFormater().Run(Extensions.xml);
-            Console.WriteLine(factoryXML.Format(contact));
-
-
-            /**ContactFormatter formatter = new ContactFormatter();
-
-            var farmottedData = formatter.Format(contact, format);
-
-            ContacFileSaver contacFileSaver = new ContacFileSaver();
-
-            contacFileSaver.SaveContact(contact,path);**/
+            foreach (Contact con in contacts)
+            {
+                var formatterXML = new ContactDataFormater().Run(EExtensions.xml);
+                string contactStringXML = formatterXML.Format(con);
+                ContacFileSaver contacFileSaverForXML = new ContacFileSaver();
+                contacFileSaverForXML.SaveContact(contactStringXML, String.Concat(_Path, dot, EExtensions.xml.ToString()));
+                contacFileSaverForXML.Dispose();
+            }
 
             Console.ReadKey();
         }
@@ -86,6 +86,8 @@ namespace FirstPartTask
             bool flag = CheckBirtdayLimit(limitDate, contact);
             Console.WriteLine(flag.ToString());
         }
+
+        
         
     }
 }

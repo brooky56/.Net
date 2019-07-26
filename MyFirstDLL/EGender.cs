@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MyFirstDLL
 {
-    public interface IContactSaver
+    public enum EGender
     {
-        void SaveContact(Contact contact, string path);
+        Man,
+        Woman,
+        Null
     }
 }

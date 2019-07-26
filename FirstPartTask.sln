@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFirstDLL", "MyFirstDLL\My
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormatterLibrary", "FormatterLibrary\FormatterLibrary.csproj", "{BAF2D08B-1D0A-4842-8C42-0B3F5A2FFA53}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaverLibrary", "SaverLibrary\SaverLibrary.csproj", "{BA04BEBE-7ACB-4BFC-92C9-27B2773A2936}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateDataLibrary", "GenerateDataLibrary\GenerateDataLibrary.csproj", "{B91E8678-98EC-4FCF-942A-9063E07749A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{BAF2D08B-1D0A-4842-8C42-0B3F5A2FFA53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAF2D08B-1D0A-4842-8C42-0B3F5A2FFA53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAF2D08B-1D0A-4842-8C42-0B3F5A2FFA53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA04BEBE-7ACB-4BFC-92C9-27B2773A2936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA04BEBE-7ACB-4BFC-92C9-27B2773A2936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA04BEBE-7ACB-4BFC-92C9-27B2773A2936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA04BEBE-7ACB-4BFC-92C9-27B2773A2936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B91E8678-98EC-4FCF-942A-9063E07749A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B91E8678-98EC-4FCF-942A-9063E07749A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B91E8678-98EC-4FCF-942A-9063E07749A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B91E8678-98EC-4FCF-942A-9063E07749A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
