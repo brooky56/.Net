@@ -1,13 +1,14 @@
-﻿using System;
+﻿using MyFirstDLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyFirstDLL
+namespace FormatterLibrary
 {
     public interface IContactFormatter
     {
-        void Format(Contact contact);
+        string Format(Contact contact);
     }
 }

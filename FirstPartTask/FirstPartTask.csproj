@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FormatterLibrary\FormatterLibrary.csproj" />
     <ProjectReference Include="..\MyFirstDLL\MyFirstDLL.csproj" />
   </ItemGroup>
 

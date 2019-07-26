@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Threading;
 using MyFirstDLL;
 using System.Collections;
+using FormatterLibrary;
 
 namespace FirstPartTask
 {
@@ -25,17 +26,19 @@ namespace FirstPartTask
                 LastName = "AAA",
                 Birthday = "01/01/1011",
                 Inn = 12121212,
+                PhoneNumber = "89008765431",
                 Position = "Doctor"
             };
 
 
 
             var factoryCSV = new ContactDataFormater().Run(Extensions.csv);
-            factoryCSV.Format(contact);
+            Console.WriteLine(factoryCSV.Format(contact));
 
 
             var factoryXML = new ContactDataFormater().Run(Extensions.xml);
-            factoryXML.Format(contact);
+            Console.WriteLine(factoryXML.Format(contact));
+
 
             /**ContactFormatter formatter = new ContactFormatter();
 

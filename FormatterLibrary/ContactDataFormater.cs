@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyFirstDLL
+namespace FormatterLibrary
 {
+    //here you can extend the list of formats for future
     public enum Extensions 
     {
         csv,
